@@ -29,6 +29,17 @@ Backup completo da configuração do meu desktop Hyprland: configs, scripts, wal
 - **Login:** SDDM desativado → autologin no TTY1 → Hyprland via uwsm
 - **Lock screen:** hyprlock (disparado pelo hypridle)
 
+## Salvar o estado atual (snapshot)
+
+Editar config em `~/.config/...` **não** atualiza este repo. Depois de mexer em algo, rode o `sync.sh` (live → dotfiles): ele copia os configs rastreados, o `.bash_profile`, os wallpapers e regenera os pkglists do estado real.
+
+```bash
+./sync.sh
+git add -A && git commit -m "sync" && git push
+```
+
+Pra versionar um novo diretório de `~/.config`, adicione o nome em `CONFIG_DIRS` no `sync.sh`.
+
 ## Restaurar numa máquina nova
 
 **Tudo de uma vez** (programas + configs + ajustes de sistema + autologin):
