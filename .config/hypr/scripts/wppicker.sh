@@ -18,7 +18,9 @@ SELECTED_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 awww img "$SELECTED_PATH"
 
 # === GERAR CORES (matugen) ===
-matugen image "$SELECTED_PATH"
+# --prefer evita travar quando a imagem tem várias cores-fonte (ex: gifs),
+# já que aqui o matugen roda sem terminal interativo.
+matugen image "$SELECTED_PATH" --prefer saturation
 
 # === CREATE SYMLINK ===
 mkdir -p "$(dirname "$SYMLINK_PATH")"

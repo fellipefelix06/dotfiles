@@ -13,7 +13,22 @@ echo "=============================================="
 # 1. Programas
 # ---------------------------------------------------------------------------
 echo
-echo ">> [1/4] Instalando pacotes do repositório oficial (pacman)..."
+echo ">> [1/4] Habilitando o repositório chaotic-aur (yay, wlogout etc. vêm dele)..."
+if ! grep -q '^\[chaotic-aur\]' /etc/pacman.conf; then
+  sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+  sudo pacman-key --lsign-key 3056513887B78AEB
+  sudo pacman -U --noconfirm \
+    'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' \
+    'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+  printf '\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' \
+    | sudo tee -a /etc/pacman.conf >/dev/null
+else
+  echo "   (chaotic-aur já habilitado, ok)"
+fi
+sudo pacman -Syu --noconfirm
+
+echo
+echo ">> Instalando pacotes (pacman: oficiais + chaotic-aur)..."
 sudo pacman -S --needed --noconfirm - < pkglist-explicit.txt
 
 if [ -s pkglist-aur.txt ]; then

@@ -1,2 +1,0 @@
-wlogout-debug
-yay-debug

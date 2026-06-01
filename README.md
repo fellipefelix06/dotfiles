@@ -11,6 +11,7 @@ Backup completo da configuração do meu desktop Hyprland: configs, scripts, wal
 | `.config/rofi/` | Launcher |
 | `.config/kitty/` | Terminal |
 | `.config/swaync/` | Centro de notificações |
+| `.config/matugen/` | Geração de cores Material You (templates + `config.toml`) — alimenta rofi, waybar, kitty, gtk, hypr |
 | `.config/gtk-3.0/`, `.config/gtk-4.0/` | Tema escuro GTK |
 | `.bash_profile` | Inicia o Hyprland no TTY1 via uwsm |
 | `system/getty-tty1-autologin.conf` | Autologin do TTY1 (vai em `/etc/...`) |
@@ -20,6 +21,8 @@ Backup completo da configuração do meu desktop Hyprland: configs, scripts, wal
 
 ## Setup do sistema (não são arquivos)
 
+- **Repositório chaotic-aur:** habilitado pelo `install.sh` (pacotes como `yay` e `wlogout` vêm dele).
+- **Cores:** Material You via `matugen`, gerado do wallpaper atual pelo `~/.config/hypr/scripts/wppicker.sh`.
 - **Fuso horário:** `America/Sao_Paulo`
 - **Teclado:** US-International (`us` + variante `intl`)
 - **Tema:** escuro (GTK `prefer-dark` / `Adwaita-dark`)
@@ -43,8 +46,10 @@ O `install.sh` adapta o autologin ao usuário atual automaticamente.
 
 ```bash
 # 1. Instalar os programas
+#    (a lista inclui pacotes do chaotic-aur — habilite-o antes; o install.sh faz isso)
 sudo pacman -S --needed - < pkglist-explicit.txt
-yay -S --needed - < pkglist-aur.txt          # AUR (use yay/paru)
+# pkglist-aur.txt costuma estar vazio (yay/wlogout vêm do chaotic-aur):
+[ -s pkglist-aur.txt ] && yay -S --needed - < pkglist-aur.txt
 
 # 2. Restaurar só os arquivos (configs + wallpapers)
 ./restore.sh

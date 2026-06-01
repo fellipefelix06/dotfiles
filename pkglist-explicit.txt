@@ -18,6 +18,7 @@ fastfetch
 firefox
 flameshot
 git
+github-cli
 gnome-themes-extra
 google-chrome
 grim
@@ -34,15 +35,17 @@ libva-intel-driver
 linux
 linux-firmware
 matugen
+mousepad
 nano
 nautilus
-network-manager-applet
 networkmanager
+network-manager-applet
 nodejs
 noto-fonts-cjk
 noto-fonts-emoji
 npm
 obsidian
+openvpn
 pamixer
 pavucontrol
 pipewire-pulse
@@ -77,6 +80,5 @@ xf86-video-amdgpu
 xf86-video-ati
 xf86-video-nouveau
 yay
-yay-debug
 yazi
 zram-generator
