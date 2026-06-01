@@ -28,13 +28,25 @@ Backup completo da configuração do meu desktop Hyprland: configs, scripts, wal
 
 ## Restaurar numa máquina nova
 
+**Tudo de uma vez** (programas + configs + ajustes de sistema + autologin):
+
+```bash
+./install.sh
+# ao terminar:  reboot
+```
+
+O `install.sh` adapta o autologin ao usuário atual automaticamente.
+
+---
+
+### Ou passo a passo (manual)
+
 ```bash
 # 1. Instalar os programas
 sudo pacman -S --needed - < pkglist-explicit.txt
-# AUR (use yay/paru):
-yay -S --needed - < pkglist-aur.txt
+yay -S --needed - < pkglist-aur.txt          # AUR (use yay/paru)
 
-# 2. Restaurar configs e wallpapers
+# 2. Restaurar só os arquivos (configs + wallpapers)
 ./restore.sh
 
 # 3. Aplicar ajustes de sistema
