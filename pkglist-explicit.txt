@@ -9,6 +9,8 @@ chaotic-keyring
 chaotic-mirrorlist
 cliphist
 discord
+docker
+docker-buildx
 dolphin
 dunst
 efibootmgr
