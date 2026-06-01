@@ -18,6 +18,7 @@ fastfetch
 firefox
 flameshot
 git
+gnome-themes-extra
 google-chrome
 grim
 grub
