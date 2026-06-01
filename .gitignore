@@ -1,0 +1,7 @@
+# caches e lixo
+*.swp
+*~
+.DS_Store
+
+# cópias acidentais
+**/*\ (Copy)*
